@@ -30,9 +30,15 @@ import { TrackingComponent } from './tracking/tracking.component';
     RouterModule.forRoot([
       { path: '', pathMatch: 'full', redirectTo: 'login' },
       { path: 'login', component: LoginComponent },
-      { path: 'navbar', component: NavbarComponent },
-      { path: 'home', component: HomeComponent },
-      { path: 'track', component: TrackingComponent },
+      { path: 'navbar', component: NavbarComponent  ,
+      children :[
+        { path: '', pathMatch: "full", redirectTo:'buycar' },
+        { path: 'buycar', component: HomeComponent },
+        { path: 'track', component: TrackingComponent },
+        { path: '**', redirectTo: ''}
+
+      ] },
+      
     ])
   ],
   providers: [],
